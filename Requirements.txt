@@ -1,0 +1,19 @@
+# Core LangChain
+langchain==0.1.0
+langchain-community==0.0.13
+langchain-google-genai==0.0.6
+
+# Vector Store (Stable for Windows)
+faiss-cpu==1.9.0
+
+# GitHub
+gitpython==3.1.40
+
+# Google AI
+google-generativeai==0.3.2
+
+# Local Embeddings (Stable)
+sentence-transformers==2.5.1
+
+# Utilities
+python-dotenv==1.0.0
