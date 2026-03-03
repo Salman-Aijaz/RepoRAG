@@ -50,7 +50,7 @@ class CodebaseExplainerFree:
 
         # Gemini automatically reads GOOGLE_API_KEY from env
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash",
+            model="gemini-2.5-flash",
             temperature=0.3,
             convert_system_message_to_human=True
         )
