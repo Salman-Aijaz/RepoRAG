@@ -5,7 +5,7 @@
 import os
 from dotenv import load_dotenv
 
-from utils.repo_manager import clone_repo, force_delete
+from utils.repo_manager import resolve_and_clone, force_delete
 from utils.file_filter  import filter_files
 from utils.chunker      import load_and_chunk_files
 from core.vector_store  import build_embeddings, create_faiss_index
@@ -32,13 +32,13 @@ class CodebaseExplainer:
 
     # ── Public API ──────────────────────────────────────────────
 
-    def ingest_repository(self, repo_url: str) -> None:
+    def ingest_repository(self, repo_url: str, token: str = None) -> None:
         """Clone repo → filter → chunk → index → build chain."""
         print("\n🚀 Starting Repository Ingestion\n")
 
         temp_dir = None
         try:
-            temp_dir = clone_repo(repo_url)
+            temp_dir = resolve_and_clone(repo_url, token)
             files    = filter_files(temp_dir)
 
             if not files:
